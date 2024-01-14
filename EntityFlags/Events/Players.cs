@@ -50,5 +50,8 @@ namespace EntityFlags.Events
         // Flag: norestrain
         [Execution(ExecutionMode.PreEvent)]
         public override bool RestrainOther(ShPlayer player, ShPlayer hitPlayer, ShRestraint restraint) => !hitPlayer.HasFlag("norestrain");
+
+        [Execution(ExecutionMode.PreEvent)]
+        public override bool Mount(ShPlayer player, ShMountable mount, byte seat) => !mount.HasFlag("nomount");
     }
 }

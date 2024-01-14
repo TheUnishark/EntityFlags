@@ -24,7 +24,7 @@ namespace EntityFlags
                 if (distance1 < distance || mountable is null)
                 {
                     if ((forceSeat && (seatIndex >= mountable1.seats.Length || mountable1.occupants[seatIndex] != null))
-                        || !player.CanMount(mountable1, true, false, out _)) continue;
+                        || !player.CanMount(mountable1, true, false, out _) || mountable1.HasFlag("nomount")) continue;
 
                     mountable = mountable1;
                     distance = distance1;
