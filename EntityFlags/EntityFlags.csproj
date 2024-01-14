@@ -50,10 +50,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>E:\Softwares\Steam\steamapps\common\BROKE PROTOCOL\BrokeProtocol_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(BPDIR)\BrokeProtocol_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>E:\Softwares\Steam\steamapps\common\BROKE PROTOCOL\BrokeProtocol_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>$(BPDIR)\BrokeProtocol_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
