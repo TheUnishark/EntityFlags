@@ -10,7 +10,5 @@ namespace EntityFlags
         public string animation;
 
         public ExtendedPlayer(ShPlayer player) => this.player = player;
-
-        public bool OnMount() => player.curMount != null && player.curMount == mountable && player.seat == mountableSeat;
     }
 }

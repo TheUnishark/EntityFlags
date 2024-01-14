@@ -5,6 +5,7 @@ namespace EntityFlags.Events
 {
     internal class Entities : EntityEvents
     {
+        [Execution(ExecutionMode.Event)]
         public override bool Spawn(ShEntity entity)
         {
             // Flag: anim:animName
