@@ -32,13 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="!GameSource">
-      <HintPath>E:\Softwares\Steam\steamapps\common\BROKE PROTOCOL\Plugins\!GameSource.dll</HintPath>
+      <HintPath>$(BPDIR)\Plugins\!GameSource.dll</HintPath>
     </Reference>
     <Reference Include="0Harmony">
-      <HintPath>E:\Softwares\Steam\steamapps\common\BROKE PROTOCOL\Plugins\0Harmony.dll</HintPath>
+      <HintPath>$(BPDIR)\Plugins\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Scripts">
-      <HintPath>E:\Softwares\Steam\steamapps\common\BROKE PROTOCOL\BrokeProtocol_Data\Managed\Scripts.dll</HintPath>
+      <HintPath>$(BPDIR)\BrokeProtocol_Data\Managed\Scripts.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -71,7 +71,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetFileName)" "E:\Softwares\Steam\steamapps\common\BROKE PROTOCOL\Plugins"
+    <PostBuildEvent>copy /Y "$(TargetFileName)" "$(BPDIR)\Plugins"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>
