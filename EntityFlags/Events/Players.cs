@@ -3,7 +3,7 @@ using BrokeProtocol.Entities;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EntityFlags
+namespace EntityFlags.Events
 {
     internal class Players : PlayerEvents
     {

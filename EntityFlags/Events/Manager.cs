@@ -2,7 +2,7 @@
 using BrokeProtocol.Collections;
 using BrokeProtocol.Entities;
 
-namespace EntityFlags
+namespace EntityFlags.Events
 {
     internal class Manager : ManagerEvents
     {

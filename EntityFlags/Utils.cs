@@ -1,5 +1,6 @@
 ﻿using BrokeProtocol.Collections;
 using BrokeProtocol.Entities;
+using EntityFlags.Events;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

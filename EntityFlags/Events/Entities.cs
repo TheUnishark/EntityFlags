@@ -1,7 +1,7 @@
 ﻿using BrokeProtocol.API;
 using BrokeProtocol.Entities;
 
-namespace EntityFlags
+namespace EntityFlags.Events
 {
     internal class Entities : EntityEvents
     {

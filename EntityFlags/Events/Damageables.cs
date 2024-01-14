@@ -3,7 +3,7 @@ using BrokeProtocol.Entities;
 using BrokeProtocol.Required;
 using UnityEngine;
 
-namespace EntityFlags
+namespace EntityFlags.Events
 {
     internal class Damageables : DamageableEvents
     {

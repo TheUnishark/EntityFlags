@@ -2,7 +2,7 @@
 using BrokeProtocol.Entities;
 using HarmonyLib;
 
-namespace EntityFlags
+namespace EntityFlags.Patches
 {
     [HarmonyPatch(typeof(SvPlayer), nameof(SvPlayer.SvView))]
     class SvView

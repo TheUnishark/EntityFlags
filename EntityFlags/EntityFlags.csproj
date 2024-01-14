@@ -57,17 +57,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AI.cs" />
     <Compile Include="Core.cs" />
-    <Compile Include="Damageables.cs" />
-    <Compile Include="Entities.cs" />
-    <Compile Include="ExtendedPlayer.cs" />
-    <Compile Include="Flags.cs" />
-    <Compile Include="Manager.cs" />
-    <Compile Include="Players.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SvPlayerPatch.cs" />
-    <Compile Include="Utils.cs" />
+	<Compile Include="Utils.cs" />
+	<Compile Include="ExtendedPlayer.cs" />
+	<Compile Include="Flags.cs" />
+	<Compile Include="AI.cs" />
+	<Compile Include="Events\Manager.cs" />
+	<Compile Include="Events\Entities.cs" />
+    <Compile Include="Events\Damageables.cs" />
+    <Compile Include="Events\Players.cs" />
+    <Compile Include="Patches\SvPlayerPatch.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
