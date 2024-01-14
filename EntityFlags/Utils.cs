@@ -1,5 +1,8 @@
 ﻿using BrokeProtocol.Collections;
 using BrokeProtocol.Entities;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace EntityFlags
@@ -83,6 +86,29 @@ namespace EntityFlags
 
             extendedPlayer.mountable = player.FindClosestMountable(true, seatIndex);
             extendedPlayer.mountableSeat = seatIndex;
+        }
+
+        public static dynamic ParseValue(string value)
+        {
+            List<Type> types = new List<Type>()
+            {
+                typeof(byte),
+                typeof(int),
+                typeof(float),
+                typeof(bool),
+            };
+
+            foreach (Type type in types)
+            {
+                TypeConverter converter = TypeDescriptor.GetConverter(type);
+
+                if (converter.IsValid(value))
+                {
+                    return converter.ConvertFromString(value);
+                }
+            }
+
+            return value;
         }
     }
 }

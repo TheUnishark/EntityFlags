@@ -34,9 +34,10 @@ namespace EntityFlags
                     string[] parts = flagsStrings[i].Split(':');
                     flags[i] = new Flag() { name = parts[0] };
 
-                    if (parts.Length > 1 && byte.TryParse(parts[1], out byte byteValue)) flags[i].param = byteValue;
-                    else if (parts.Length > 1 && int.TryParse(parts[1], out int intValue)) flags[i].param = intValue;
-                    else if (parts.Length > 1) flags[i].param = parts[1];
+                    if (parts.Length > 1)
+                    {
+                        flags[i].param = Utils.ParseValue(parts[1]);
+                    }
                 }
             }
 
@@ -47,13 +48,16 @@ namespace EntityFlags
 
         public static bool TryGetFlagValue<T>(this ShEntity entity, string flagName, out T value)
         {
-            value = default;
             Flag flag = entity.GetFlags().FirstOrDefault(x => x.name == flagName);
 
             if (flag != null && flag.param != null)
+            {
                 value = (T)flag.param;
+                return true;
+            }
 
-            return flag != null && flag.param != null;
+            value = default;
+            return false;
         }
 
         public static bool HasFlag(this ShEntity entity, string flagName) => entity.GetFlags().Any(x => x.name == flagName.ToLowerInvariant());
