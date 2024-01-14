@@ -7,10 +7,10 @@ EntityFlags is a flag system for entities in Broke Protocol to allow advanced co
 | nosteal | | ShEntity | Viewing the inventory is disabled | |
 | anim | animName | ShEntity | Force to play the animation animName | The entity must have SyncAnimator enabled |
 | godmode | | ShDamageable | Damages are disabled | |
-| norotate | | ShPlayer | Auto-rotation disabled | |
-| noai | | ShPlayer | Forced to base state | |
-| norestrain | | ShPlayer | Disabled handcuffs | |
-| mount | seatIndex (optional) | ShPlayer | Mount the closest mountable at seatIndex | The NPC will mount any seat of the closest mountable |
+| norotate | | ShPlayer | Auto-rotation is disabled | |
+| noai | | ShPlayer | AI is disabled | |
+| norestrain | | ShPlayer | Cuffing the NPC is disabled | |
+| mount | seatIndex (optional) | ShPlayer | Mounts the closest mountable at seatIndex | Without seatIndex the NPC will mount any seat of the closest mountable |
 
 ## How to use
 To use this plugin, you have to use the `data` field of entities. The field must be filled in the following format: `flags[flag1,flag2:param,flag3]`.
