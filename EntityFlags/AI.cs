@@ -28,11 +28,13 @@ namespace EntityFlags
 
     public class SitRandomState : MovingState
     {
-        ShMountable mountable;
-        private bool onMountable;
+        private ShMountable mountable;
 
         public override byte StateMoveMode => MoveMode.Positive;
-        public override bool IsBusy => onMountable;
+
+        private bool OnMountable => player.curMount == mountable;
+
+        public override bool IsBusy => OnMountable;
 
         public override bool EnterTest() => player.FindClosestMountable() != null;
 
@@ -41,9 +43,8 @@ namespace EntityFlags
             base.EnterState();
 
             mountable = player.FindClosestMountable();
-            onMountable = player.curMount == mountable;
 
-            if (!onMountable)
+            if (!OnMountable)
             {
                 player.svPlayer.SvDismount();
                 player.svPlayer.GetPath(mountable.GetPosition);
@@ -58,12 +59,11 @@ namespace EntityFlags
 
             if (arrived)
             {
-                if (!onMountable && player.CanMount(mountable, true, true, out byte seatIndex))
+                if (!OnMountable && player.CanMount(mountable, true, true, out byte seatIndex))
                 {
                     player.svPlayer.SvMount(mountable, seatIndex);
-                    onMountable = true;
                 }
-                else if (!onMountable)
+                else if (!OnMountable)
                 {
                     player.svPlayer.ResetAI();
                 }
@@ -84,12 +84,14 @@ namespace EntityFlags
 
     public class SitState : MovingState
     {
-        private bool onMountable;
-        private ExtendedPlayer extendedPlayer;
+        private ShMountable mountable;
+        private byte seatIndex;
 
         public override byte StateMoveMode => MoveMode.Positive;
 
-        public override bool IsBusy => player.curMount == extendedPlayer.mountable && player.seat == extendedPlayer.mountableSeat;
+        private bool OnMountable => player.curMount == mountable && player.seat == seatIndex;
+
+        public override bool IsBusy => OnMountable;
 
         public override bool EnterTest() => player.ExtendedPlayer().mountable != null;
 
@@ -97,10 +99,12 @@ namespace EntityFlags
         {
             base.EnterState();
 
-            extendedPlayer = player.ExtendedPlayer();
-            onMountable = player.curMount != null && (player.seat != extendedPlayer.mountableSeat || player.curMount != extendedPlayer.mountable);
+            ExtendedPlayer extendedPlayer = player.ExtendedPlayer();
 
-            if (!onMountable)
+            mountable = extendedPlayer.mountable;
+            seatIndex = extendedPlayer.mountableSeat;
+
+            if (!OnMountable)
             {
                 player.svPlayer.SvDismount();
                 player.svPlayer.GetPath(extendedPlayer.mountable.GetPosition);
@@ -111,15 +115,15 @@ namespace EntityFlags
         {
             if (!base.UpdateState()) return false;
 
-            bool arrived = player.GetControlled.Distance(extendedPlayer.mountable.GetPosition) < Util.useDistance;
+            bool arrived = player.GetControlled.Distance(mountable.GetPosition) < Util.useDistance;
 
             if (arrived)
             {
-                if (!extendedPlayer.OnMount() && player.CanMount(extendedPlayer.mountable, true, true, out _) && extendedPlayer.mountable.occupants[extendedPlayer.mountableSeat] is null)
+                if (!OnMountable && player.CanMount(mountable, true, true, out _) && mountable.occupants[seatIndex] is null)
                 {
-                    player.svPlayer.SvMount(extendedPlayer.mountable, extendedPlayer.mountableSeat);
+                    player.svPlayer.SvMount(mountable, seatIndex);
                 }
-                else if (!extendedPlayer.OnMount())
+                else if (!OnMountable)
                 {
                     player.svPlayer.ResetAI();
                 }
