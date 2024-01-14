@@ -10,7 +10,7 @@ EntityFlags is a flag system for entities in Broke Protocol to allow advanced co
 | norotate | | ShPlayer | Auto-rotation is disabled | |
 | noai | | ShPlayer | AI is disabled | |
 | norestrain | | ShPlayer | Cuffing the NPC is disabled | |
-| mount | seatIndex (optional) | ShPlayer | Mounts the closest mountable at seatIndex | Without seatIndex the NPC will mount any seat of the closest mountable |
+| mount | seatIndex (optional) | ShPlayer | Mounts the closest available mountable at seatIndex | Without seatIndex the NPC will mount any seat of the closest available mountable |
 
 ## How to use
 To use this plugin, you have to use the `data` field of entities. The field must be filled in the following format: `flags[flag1,flag2:param,flag3]`.
@@ -20,7 +20,7 @@ The following flags on an npc: `flags[godmode,noai,nosteal,norestrain,mount:0]` 
 * AI disabled
 * Impossible to view the inventory
 * Impossible to restrain with handcuffs
-* Will mount the first seat (0) of the closest mountable
+* Will mount the first seat (0) of the closest available mountable
 
 ## Build the plugin
 1. Set the environment variable `BPDIR` to your Broke Protocol directory (or change every `$(BPDIR)` instances to your BP directory path in the csproj file).
