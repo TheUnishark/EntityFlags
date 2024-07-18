@@ -16,13 +16,6 @@ namespace EntityFlags.Events
                     player.svPlayer.SetState(BrokeProtocol.GameSource.Core.Null.index);
             }
 
-            // Flag: norotate
-            foreach (ShPlayer player in Players.noRotate.Keys)
-            {
-                if (player.svPlayer.currentState.index == BrokeProtocol.GameSource.Core.Null.index)
-                    player.SetRotation(Players.noRotate[player]);
-            }
-
             return true;
         }
 

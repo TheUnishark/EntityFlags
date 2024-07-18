@@ -1,13 +1,12 @@
 ﻿using BrokeProtocol.API;
 using BrokeProtocol.Entities;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace EntityFlags.Events
 {
     internal class Players : PlayerEvents
     {
-        public static Dictionary<ShPlayer, Quaternion> noRotate = new();
+        public static HashSet<ShPlayer> noRotate = new();
         public static List<ShPlayer> noAI = new();
 
         [Execution(ExecutionMode.Event)]
@@ -16,7 +15,7 @@ namespace EntityFlags.Events
             Core.extendedPlayers.Add(entity.Player, new ExtendedPlayer(entity.Player));
 
             // Flag: norotate
-            if (entity.HasFlag("norotate")) noRotate.Add(entity.Player, entity.GetRotation);
+            if (entity.HasFlag("norotate")) noRotate.Add(entity.Player);
 
             // Flag: noai
             if (entity.HasFlag("noai")) noAI.Add(entity.Player);
@@ -27,7 +26,7 @@ namespace EntityFlags.Events
         [Execution(ExecutionMode.Event)]
         public override bool Destroy(ShEntity entity)
         {
-            if (noRotate.ContainsKey(entity.Player)) noRotate.Remove(entity.Player);
+            if (noRotate.Contains(entity.Player)) noRotate.Remove(entity.Player);
             if (noAI.Contains(entity.Player)) noAI.Remove(entity.Player);
 
             return true;
