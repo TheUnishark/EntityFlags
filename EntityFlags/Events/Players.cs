@@ -7,8 +7,8 @@ namespace EntityFlags.Events
 {
     internal class Players : PlayerEvents
     {
-        public static Dictionary<ShPlayer, Quaternion> noRotate = new Dictionary<ShPlayer, Quaternion>();
-        public static List<ShPlayer> noAI = new List<ShPlayer>();
+        public static Dictionary<ShPlayer, Quaternion> noRotate = new();
+        public static List<ShPlayer> noAI = new();
 
         [Execution(ExecutionMode.Event)]
         public override bool Initialize(ShEntity entity)
