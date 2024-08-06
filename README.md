@@ -5,7 +5,7 @@ EntityFlags is a flag system for entities in Broke Protocol to allow advanced co
 | Flag | Param | Type | Effect | Note |
 | ---- | ----- | ---- | ------ | ---- |
 | nosteal | | ShEntity | Viewing the inventory is disabled | |
-| anim | animName | ShEntity | Force to play the animation animName | The entity must have SyncAnimator enabled |
+| anim | animName | ShEntity | Force to play the animation animName | |
 | godmode | | ShDamageable | Damages are disabled | |
 | nomount | | ShMountable | Mounting this entity is disabled | |
 | norotate | | ShPlayer | Auto-rotation is disabled | |
