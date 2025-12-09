@@ -55,6 +55,6 @@ namespace EntityFlags.Events
         public override bool Mount(ShPlayer player, ShMountable mount, byte seat) => !mount.HasFlag("nomount");
         // Flag: nocollect
         [Execution(ExecutionMode.PreEvent)]
-        public override bool Collect(ShPlayer player, ShEntity e, bool consume) => !e.HasFlag("nocollect");
+        public override bool Collect(ShPlayer player, ShEntity entity, bool consume) => !e.HasFlag("nocollect");
     }
 }
