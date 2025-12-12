@@ -12,7 +12,7 @@ EntityFlags is a flag system for entities in Broke Protocol to allow advanced co
 | noai | | ShPlayer | AI is disabled | |
 | norestrain | | ShPlayer | Cuffing the NPC is disabled | |
 | mount | seatIndex (optional) | ShPlayer | Mounts the closest available mountable at seatIndex | Without seatIndex the NPC will mount any seat of the closest available mountable |
-| norestrain | | ShItem | Collecting this item is disabled | |
+| nocollect | | ShItem | Collecting this item is disabled | |
 
 ## How to use
 To use this plugin, you have to use the `data` field of entities. The field must be filled in the following format: `flags[flag1,flag2:param,flag3]`.
