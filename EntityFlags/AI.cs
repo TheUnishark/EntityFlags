@@ -47,7 +47,7 @@ namespace EntityFlags
             if (!OnMountable)
             {
                 player.svPlayer.SvDismount();
-                player.svPlayer.GetPath(mountable.GetPosition);
+                player.svPlayer.GetPath(mountable.Position);
             }
         }
 
@@ -55,7 +55,7 @@ namespace EntityFlags
         {
             if (!base.UpdateState()) return false;
 
-            bool arrived = player.GetControlled.Distance(mountable.GetPosition) < Util.useDistance;
+            bool arrived = player.GetControlled().Distance(mountable.Position) < Util.useDistance;
 
             if (arrived)
             {
@@ -107,7 +107,7 @@ namespace EntityFlags
             if (!OnMountable)
             {
                 player.svPlayer.SvDismount();
-                player.svPlayer.GetPath(extendedPlayer.mountable.GetPosition);
+                player.svPlayer.GetPath(extendedPlayer.mountable.Position);
             }
         }
 
@@ -115,7 +115,7 @@ namespace EntityFlags
         {
             if (!base.UpdateState()) return false;
 
-            bool arrived = player.GetControlled.Distance(mountable.GetPosition) < Util.useDistance;
+            bool arrived = player.GetControlled().Distance(mountable.Position) < Util.useDistance;
 
             if (arrived)
             {

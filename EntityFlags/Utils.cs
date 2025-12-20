@@ -17,7 +17,7 @@ namespace EntityFlags
             ShMountable mountable = null;
             float distance = 0;
 
-            foreach (ShMountable mountable1 in EntityCollections.Entities.Where(x => x is ShMountable y && y.seats.Length > 0 && y.GetPlaceIndex == player.GetPlaceIndex).Cast<ShMountable>())
+            foreach (ShMountable mountable1 in EntityCollections.Entities.Where(x => x is ShMountable y && y.seats.Length > 0 && y.GetPlaceIndex() == player.GetPlaceIndex()).Cast<ShMountable>())
             {
                 float distance1 = player.Distance(mountable1);
 
